@@ -16,4 +16,14 @@ async function getUser(userId) {
     return await response.json();
 }
 
+export async function getUsernameById(userId) {
+    try {
+        const userData = await getUser(userId);
+        return userData.username;
+    } catch (error) {
+        console.error(`Error fetching username for user ID ${userId}:`, error);
+        return null;
+    }
+}
+
 export default getUser;

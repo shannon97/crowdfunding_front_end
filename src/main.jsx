@@ -10,7 +10,6 @@ import ContactPage from './pages/ContactPage.jsx';
 import NewAccPage from './pages/NewAccPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import NewProjectPage from './pages/NewProjectPage.jsx';
-
 import NavBar from './components/NavBar.jsx';
 
 import { AuthProvider } from './components/AuthProvider.jsx';

@@ -1,17 +1,22 @@
-async function postNewProject(NewProject) {
-    const url = `${import.meta.env.VITE_API_URL}/projects/`;
+async function postPledge(amount, comment, anonymous, projectId) {
+    const url = `${import.meta.env.VITE_API_URL}/pledges/`;
     const token = window.localStorage.getItem("token");
     const response = await fetch (url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${token}`
+            "Authorization": `Token ${token}`,
         },
-        body: JSON.stringify(NewProject),
+        body: JSON.stringify({
+            "amount": amount,
+            "comment": comment,
+            "anonymous": anonymous,
+            "project": projectId,
+        }),
     });
 
     if (!response.ok) {
-        const fallbackError = `Error trying to create project`;
+        const fallbackError = `Error trying to create pledge`;
 
         const data = await response.json().catch(() => {
             throw new Error(fallbackError);
@@ -24,4 +29,4 @@ async function postNewProject(NewProject) {
     return await response.json();
 }
 
-export default postNewProject;
+export default postPledge;

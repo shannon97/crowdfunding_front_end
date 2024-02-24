@@ -14,6 +14,8 @@ function NewProjectForm() {
         goal: "",
         needed_by: "",
         image: "",
+        is_open: true,
+        date_created: new Date().toISOString(),
     });
 
     const handleChange = (event) => {
