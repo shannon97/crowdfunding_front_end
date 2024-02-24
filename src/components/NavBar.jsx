@@ -16,14 +16,24 @@ function NavBar() {
     return (
         <div>
             <nav>
-                <Link to="/">Home </Link>
+                <Link to="/">Home | </Link>
+                <Link to="/about">About | </Link>
+                <Link to="/contact">Contact Us | </Link>
                 {auth.token ? (
-                    <Link to="/" onClick={handleLogout}>Log Out</Link>
+                    <>
+                        <Link to="/newproject">Create Project | </Link>
+                        <Link to="/profile">Profile | </Link>
+                        <Link to="/" onClick={handleLogout}>Log Out</Link>
+                    </>
                 ) : (
-                <Link to="/login">Login</Link>
+                    <>
+                        <Link to="/newacc">Create Account | </Link>
+                        <Link to="/login">Login</Link>
+                    </>
                 )}
             </nav>
             <Outlet />
+            <footer>[footer stuff here]</footer>
         </div>
     );
 }
