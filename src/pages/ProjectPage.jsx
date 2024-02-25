@@ -11,6 +11,7 @@ function ProjectPage () {
     const { id } = useParams();
     const { project, isLoading, error } = useProject(id);
     const [pledgesWithSupporterNames, setPledgesWithSupporterNames] = useState([]);
+    const [totalRaised, setTotalRaised] = useState(0);
 
     useEffect(() => {
         if (!isLoading && !error) {
@@ -20,6 +21,9 @@ function ProjectPage () {
                     return { ...pledgeData, supporterName };
                 }));
                 setPledgesWithSupporterNames(pledges);
+
+                const total = pledges.reduce((sum, pledge) => sum + pledge.amount, 0);
+                setTotalRaised(total);
             };
 
             fetchPledgeData();
@@ -38,7 +42,8 @@ function ProjectPage () {
     return (
         <div>
             <img src={project.image}/>
-            <h2>{project.title}</h2>
+            <h2>{project.title} | Goal: ${project.goal}</h2>
+            <h3>Raised So Far: ${totalRaised}</h3>
             <h3>Pet Name: {project.pet_name}</h3>
             <h3>Description: {project.description}</h3>
             <h3>Created on: {new Date(project.date_created).toLocaleDateString('en-GB')}</h3>
