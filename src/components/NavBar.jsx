@@ -11,27 +11,32 @@ function NavBar() {
 
     return (
         <div className="flex">
-            <div className="w-64 h-full shadow-md bg-white px-1 absolute">
-                <div className="pt-4 pb-2 px-6">
-                    <img src="/path-to-your-logo.png" alt="Logo" className="h-12 w-auto" />
+            <div className="flex flex-col w-64 h-full shadow-md bg-white px-1 fixed justify-between">
+                <div>
+                    <div className="pt-4 pb-2 px-6 text-center">
+                        <img src="imgs/logo.png" alt="Logo" className="w-auto" />
+                    </div>
+                    <nav className="flex flex-col items-center justify-center mt-10">
+                        <Link to="/" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Home</Link>
+                        <Link to="/about" className="py-2 text-sm text-gray-700 hover:bg-gray-100">About</Link>
+                        <Link to="/contact" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Contact Us</Link>
+                        {auth.token ? (
+                            <>
+                                <Link to="/newproject" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Create Project</Link>
+                                <Link to="/profile" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
+                                <Link to="/" onClick={handleLogout} className="py-2 text-sm text-gray-700 hover:bg-gray-100">Log Out</Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/newacc" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Create Account</Link>
+                                <Link to="/login" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Login</Link>
+                            </>
+                        )}
+                    </nav>
                 </div>
-                <nav className="flex flex-col mt-4">
-                    <Link to="/" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Home</Link>
-                    <Link to="/about" className="py-2 text-sm text-gray-700 hover:bg-gray-100">About</Link>
-                    <Link to="/contact" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Contact Us</Link>
-                    {auth.token ? (
-                        <>
-                            <Link to="/newproject" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Create Project</Link>
-                            <Link to="/profile" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
-                            <Link to="/" onClick={handleLogout} className="py-2 text-sm text-gray-700 hover:bg-gray-100">Log Out</Link>
-                        </>
-                    ) : (
-                        <>
-                            <Link to="/newacc" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Create Account</Link>
-                            <Link to="/login" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Login</Link>
-                        </>
-                    )}
-                </nav>
+                <div className="py-4 text-center text-xs text-gray-600">
+                    Shannon Oliver | She Codes 2024
+                </div>
             </div>
             <div className="flex-1">
                 <Outlet />
