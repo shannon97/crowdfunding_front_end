@@ -27,7 +27,7 @@ function ProfilePage() {
                     <p>First Name: {user.first_name}</p>
                     <p>Last Name: {user.last_name}</p>
                     <p>Bio: {user.user_desc}</p>
-                    <p>Date Joined: {user.date_joined}</p>
+                    <p>Date Joined: {new Date(user.date_joined).toLocaleDateString('en-GB')}</p>
                     <button onClick={() => navigate('/edit-profile')}>Edit Details </button>
                 </>
             )}
