@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../components/AuthProvider.jsx";
 import { useNavigate } from 'react-router-dom';
 import useUser from "../hooks/use-user";
 
 function ProfilePage() {
     const { auth } = useContext(AuthContext);
-    const { user, isLoading, error } = useUser(auth.user_id, auth.token); 
+    const { user, isLoading, error } = useUser(auth.user_id); 
     const navigate = useNavigate();
 
     if (isLoading) {
@@ -20,8 +20,6 @@ function ProfilePage() {
     return (
         <div>
             <h2>Profile Page</h2>
-            {user && (
-                <>
                     <p>Profile Img: <img src={user.profile_img} alt="Profile" /></p>
                     <p>Username: {user.username}</p>
                     <p>First Name: {user.first_name}</p>
@@ -29,8 +27,6 @@ function ProfilePage() {
                     <p>Bio: {user.user_desc}</p>
                     <p>Date Joined: {new Date(user.date_joined).toLocaleDateString('en-GB')}</p>
                     <button onClick={() => navigate('/edit-profile')}>Edit Details </button>
-                </>
-            )}
         </div>
     );
 }

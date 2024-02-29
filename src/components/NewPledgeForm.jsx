@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import postPledge from '../api/post-pledge';
+import getProject from '../api/get-project';
 
 function NewPledgeForm({ projectId }) {
   const [pledgeAmount, setPledgeAmount] = useState('');
@@ -13,6 +14,8 @@ function NewPledgeForm({ projectId }) {
     } catch (error) {
       console.error('Error trying to create pledge', error);
     }
+
+    location.reload();
   };
 
   return (
