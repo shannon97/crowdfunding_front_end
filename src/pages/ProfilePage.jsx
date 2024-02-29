@@ -1,31 +1,38 @@
-import { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { AuthContext } from "../components/AuthProvider.jsx";
+import { useNavigate } from 'react-router-dom';
 import useUser from "../hooks/use-user";
-import { useAuth } from "../hooks/use-auth";
 
 function ProfilePage() {
-    const auth = useAuth();
-    const { user, isLoading, error } = useUser(auth.user ? auth.user.id : null);
+    const { auth } = useContext(AuthContext);
+    const { user, isLoading, error } = useUser(auth.user_id, auth.token); 
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        if (auth.user) {
-            getUserData(auth.user.id);
-        }
-    }, [auth.user]);
+    if (isLoading) {
+        return <p>Loading... Please Wait...</p>;
+    }
 
-return (
-    <div>
-        {isLoading && <p>Loading... Please wait...</p>}
-        {error && <p>{error.message}</p>}
-        {user && (
-            <div>
-                <h2>Profile Page</h2>
-                <p>Profile Img: {user.profile_img}</p>
-                <p>Username: {user.username}</p>
-                <p>Bio: {user.user_desc}</p>
-            </div>
-        )}
-    </div>
-);
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
+
+
+    return (
+        <div>
+            <h2>Profile Page</h2>
+            {user && (
+                <>
+                    <p>Profile Img: <img src={user.profile_img} alt="Profile" /></p>
+                    <p>Username: {user.username}</p>
+                    <p>First Name: {user.first_name}</p>
+                    <p>Last Name: {user.last_name}</p>
+                    <p>Bio: {user.user_desc}</p>
+                    <p>Date Joined: {user.date_joined}</p>
+                    <button onClick={() => navigate('/edit-profile')}>Edit Details </button>
+                </>
+            )}
+        </div>
+    );
 }
 
 export default ProfilePage;

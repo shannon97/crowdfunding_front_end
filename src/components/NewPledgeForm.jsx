@@ -28,7 +28,7 @@ function NewPledgeForm({ projectId }) {
                         required 
                     />
                 </label>
-                <br />
+                <br/>
                 <label>
                     Comment (optional):
                     <input 
@@ -37,7 +37,7 @@ function NewPledgeForm({ projectId }) {
                         onChange={(event) => setPledgeComment(event.target.value)} 
                     />
                 </label>
-                <br />
+                <br/>
                 <label>
                     <input 
                         type="checkbox" 
@@ -49,8 +49,10 @@ function NewPledgeForm({ projectId }) {
                     />
                     Make my pledge anonymous
                 </label>
-                <br />
-                <button type="submit">Make Pledge</button>
+                <br/>
+                <button type="submit" onClick={handlePledgeSubmit}>
+                  Make Pledge
+                  </button>
             </form>
     </div>
   );

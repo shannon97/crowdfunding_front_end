@@ -7,16 +7,18 @@ export default function useUser(userId) {
     const [error, setError] = useState();
 
     useEffect(() => {
+
         getUser(userId)
-        .then((user) => {
-            setUser(user);
-            setIsLoading(false);
-        })
-        .catch((error) => {
-            setError(error);
-            setIsLoading(false);
-        });
-    }, []);
+            .then((user) => {
+                setUser(user);
+                setIsLoading(false);
+            })
+
+            .catch((error) => {
+                setError(error);
+                setIsLoading(false);
+            });
+    }, [userId]);
 
     return { user, isLoading, error };
 }

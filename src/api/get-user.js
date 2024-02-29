@@ -1,6 +1,13 @@
 async function getUser(userId) {
-    const url = `${import.meta.env.VITE_API_URL}/users/${userId}`;
-    const response = await fetch(url, { method: "GET" });
+    const url = `${import.meta.env.VITE_API_URL}/users/${userId}/`;
+    const token = window.localStorage.getItem("token");
+    
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Authorization": `Token ${token}`
+        }
+     });
 
     if (!response.ok) {
         const fallbackError = `Error fetching user with ID ${userId}`;
@@ -16,9 +23,9 @@ async function getUser(userId) {
     return await response.json();
 }
 
-export async function getUsernameById(userId) {
+export async function getUsernameById(userId, token) {
     try {
-        const userData = await getUser(userId);
+        const userData = await getUser(userId, token);
         return userData.username;
     } catch (error) {
         console.error(`Error fetching username for user ID ${userId}:`, error);

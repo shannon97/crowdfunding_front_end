@@ -16,6 +16,7 @@ function LoginForm() {
 
     const handleChange = (event) => {
         const { id, value } = event.target;
+
         setCredentials((prevCredentials) => ({
             ...prevCredentials,
             [id] : value,
@@ -24,13 +25,20 @@ function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         if (credentials.username && credentials.password) {
             postLogin(credentials.username, credentials.password).then((response) => {
                 window.localStorage.setItem("token", response.token);
+                window.localStorage.setItem("user_id", response.user_id);
+
                 setAuth({
                     token: response.token,
+                    user_id:response.user_id,
                 })
+
                 navigate("/");
+            }).catch((error) => {
+                console.error("Login attempt failed.", error);
             });
         }
     };

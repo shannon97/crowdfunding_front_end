@@ -37,7 +37,7 @@ function NewProjectForm() {
     };
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Project: </label>
                 <input

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUsernameById } from "../api/get-user";
 import useProject from "../hooks/use-project";
-import postPledge from "../api/post-pledge";
 import NewPledgeForm from "../components/NewPledgeForm";
 
 function ProjectPage () {
