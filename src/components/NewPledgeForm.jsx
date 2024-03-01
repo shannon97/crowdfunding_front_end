@@ -19,28 +19,30 @@ function NewPledgeForm({ projectId }) {
 
   return (
       <div className="mt-1">
-          <h3 className="text-xl font-bold">Make a Pledge</h3>
+          <h3 className="text-xl font-bold text-center">Make a Pledge</h3>
           <form onSubmit={handlePledgeSubmit} className="space-y-4 mt-4">
-              <div className="flex flex-col">
-                  <label className="font-bold mb-2">Amount:</label>
+              <div className="flex flex-wrap -mx-3 mb-2">
+                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label className="font-bold mb-2" htmlFor="amount">Amount:</label>
                   <input 
                       type="number"
                       value={pledgeAmount}
                       onChange={(event) => setPledgeAmount(event.target.value)}
                       required
                       className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+                </div>
+
+                <div className="w-full md:w-1/2 px-3">
+                    <label className="font-bold mb-2" htmlFor="comment">Comment (optional):</label>
+                    <input 
+                        type="text"
+                        value={pledgeComment}
+                        onChange={(event) => setPledgeComment(event.target.value)}
+                        className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+                </div>
               </div>
 
-              <div className="flex flex-col">
-                  <label className="font-bold mb-2">Comment (optional):</label>
-                  <input 
-                      type="text"
-                      value={pledgeComment}
-                      onChange={(event) => setPledgeComment(event.target.value)}
-                      className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
-              </div>
-
-              <div className="flex items-center">
+              <div className="flex justify-center items-center">
                   <input 
                       type="checkbox"
                       checked={anonymous}

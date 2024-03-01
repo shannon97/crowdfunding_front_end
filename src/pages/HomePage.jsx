@@ -5,6 +5,7 @@ import '../index.css'
 
 function HomePage() {
     const { projects } = useProjects();
+    const sortProjects = projects.slice().sort((older, newer) => new Date(newer.date_created) - new Date(older.date_created));
 
     return (
         <PageLayout>
@@ -14,7 +15,7 @@ function HomePage() {
             </div>
                 <br/>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-20">
-                    {projects.map((projectData, key) => {
+                    {sortProjects.map((projectData, key) => {
                     return <ProjectCard key={key} projectData={projectData} />;
                 })}
                 </div>
