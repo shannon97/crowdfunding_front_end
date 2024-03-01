@@ -23,7 +23,7 @@ function ProfilePage() {
         <PageLayout>
             <div className="px-10 flex flex-col items-center">
                 <div className="w-full bg-white border-t border-b p-4 shadow-sm" style={{ borderColor: '#00bcd4' }}>
-                    <h1 className="text-4xl font-bold text-slate-800 underline text-center mb-5">Profile Page</h1>
+                    <h1 className="text-4xl font-bold text-slate-800 underline text-center mb-5">ACCOUNT DETAILS</h1>
                 </div>
 
                 <div className="flex flex-row items-center w-full gap-10">
@@ -40,6 +40,9 @@ function ProfilePage() {
                             </div>
                             <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">Last Name:</span> {user.last_name}
+                            </div>
+                            <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
+                                <span className="font-bold text-lg">Email:</span> {user.email}
                             </div>
                             <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">Bio:</span> {user.user_desc}

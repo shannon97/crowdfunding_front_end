@@ -5,8 +5,8 @@ function NewProjectPage() {
     return (
         <div>
             <PageLayout>
-                <div>
-                    <h1 className="text-3xl font-bold text-slate-800 underline text-center">Create a New Project</h1>
+                <div className="w-full bg-white border-t border-b p-4 shadow-sm" style={{ borderColor: '#00bcd4' }}>
+                    <h1 className="text-4xl font-bold text-slate-800 underline text-center mb-5">CREATE A NEW PROJECT</h1>
                 </div>
             </PageLayout>
             
