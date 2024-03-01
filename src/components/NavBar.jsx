@@ -11,7 +11,7 @@ function NavBar() {
 
     return (
         <div className="flex">
-            <div className="flex flex-col w-64 h-full shadow-md bg-white px-1 fixed justify-between">
+            <div className="flex flex-col w-64 md:w-48 lg:w-64 h-full fixed bg-white shadow-md px-1 justify-between">
                 <div>
                     <div className="pt-4 pb-2 px-6 text-center">
                         <img src="imgs/logo.png" alt="Logo" className="w-auto" />
@@ -34,7 +34,7 @@ function NavBar() {
                         )}
                     </nav>
                 </div>
-                <div className="py-4 text-center text-xs text-gray-600">
+                <div className="py-4 text-center text-xs" style={{ color: '#00bcd4' }}>
                     Shannon Oliver | She Codes 2024
                 </div>
             </div>

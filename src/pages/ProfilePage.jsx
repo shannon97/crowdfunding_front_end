@@ -53,12 +53,10 @@ function ProfilePage() {
                     </div>
                 </div>
                 </div>
-    
                 <button 
                     onClick={() => navigate('/edit-profile')}
                     style={{ backgroundColor: '#00bcd4' }}
-                    className="mt-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white w-1/3"
-                >
+                    className="mt-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white w-1/3">
                     Edit Details
                 </button>
             </div>
