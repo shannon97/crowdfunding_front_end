@@ -67,14 +67,14 @@ function ProjectPage () {
                     <h1 className="text-4xl font-bold text-slate-800 underline text-center mb-7">{project.title} | Goal: ${project.goal}</h1>
                 </div>
 
-                <div className="flex flex-row items-center w-full justify-center gap-10">
-                    <div className="flex-initial">
+                <div className="px-5 lg:px-10 flex flex-col lg:flex-row items-center w-full justify-center gap-4 lg:gap-10">
+                    <div className="w-full lg:w-1/2 xl:w-1/3 h-64 lg:h-96 xl:h-auto">
                         <div className="rounded-full overflow-hidden border" style={{ width: '36rem', height: '36rem', borderColor: '#00bcd4', boxShadow: '0 4px 6px -1px rgba(0, 188, 212, 0.5), 0 2px 4px -2px rgba(0, 188, 212, 0.5)' }}>
                             <img src={project.image} alt="Project" className="w-full h-full object-cover" />
                         </div>
                     </div>
 
-                    <div className="flex-grow space-y-4">
+                    <div className="flex-grow space-y-4 w-full lg:w-1/2 xl:w-2/3">
                         <div className="bg-white border rounded-md p-4 shadow-sm" style={{ borderColor: '#00bcd4' }}>
                             <h3 className="text-lg"><span className="font-bold">Posted By: </span> {projectUsername}</h3>
                         </div>

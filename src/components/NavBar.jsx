@@ -14,7 +14,7 @@ function NavBar() {
             <div className="flex flex-col w-64 md:w-48 lg:w-64 h-full fixed bg-white shadow-md px-1 justify-between">
                 <div>
                     <div className="pt-4 pb-2 px-6 text-center">
-                        <img src="imgs/logo.png" alt="Logo" className="w-auto" />
+                        <img src="/imgs/logo.png" alt="Logo" className="w-auto" />
                     </div>
                     <nav className="flex flex-col items-center justify-center mt-10">
                         <Link to="/" className="py-2 text-sm text-gray-700 hover:bg-gray-100">Home</Link>
