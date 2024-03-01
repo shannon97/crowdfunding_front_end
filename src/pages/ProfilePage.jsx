@@ -23,28 +23,28 @@ function ProfilePage() {
         <PageLayout>
             <div className="px-10 flex flex-col items-center">
                 <div className="w-full bg-white border-t border-b p-4 shadow-sm" style={{ borderColor: '#00bcd4' }}>
-                    <h1 className="text-3xl font-bold text-slate-800 underline text-center mb-7">Profile Page</h1>
+                    <h1 className="text-4xl font-bold text-slate-800 underline text-center mb-5">Profile Page</h1>
                 </div>
 
-                <div className="flex flex-row items-center w-full justify-center gap-10">
-                    <div className="flex-initial w-96 h-96 rounded-full overflow-hidden border-2" style={{ borderColor: '#00bcd4' }}>
+                <div className="flex flex-row items-center w-full gap-10">
+                    <div className="flex-initial w-96 h-96 rounded-full overflow-hidden border" style={{ borderColor: '#00bcd4', boxShadow: '0 4px 6px -1px rgba(0, 188, 212, 0.5), 0 2px 4px -2px rgba(0, 188, 212, 0.5)' }}>
                             <img src={user.profile_img} alt="Profile" className="w-full h-full object-cover" />
                     </div>
-                    <div className="flex-grow max-w-2xl">
-                        <div className="flex flex-col justify-center space-y-4">
-                            <div className="bg-white border border-gray-300 rounded-md p-2">
+                    <div className="flex-grow space-y-4">
+                        <div className="flex flex-col space-y-4">
+                            <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">Username:</span> {user.username}
                             </div>
-                            <div className="bg-white border border-gray-300 rounded-md p-2">
+                            <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">First Name:</span> {user.first_name}
                             </div>
-                            <div className="bg-white border border-gray-300 rounded-md p-2">
+                            <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">Last Name:</span> {user.last_name}
                             </div>
-                            <div className="bg-white border border-gray-300 rounded-md p-2">
+                            <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">Bio:</span> {user.user_desc}
                             </div>
-                            <div className="bg-white border border-gray-300 rounded-md p-2">
+                            <div className="bg-white border border-gray-300 rounded-md p-2 w-2/3">
                                 <span className="font-bold text-lg">Date Joined:</span> {new Date(user.date_joined).toLocaleDateString('en-GB')}
                             </div>
                     </div>
@@ -54,7 +54,7 @@ function ProfilePage() {
                 <button 
                     onClick={() => navigate('/edit-profile')}
                     style={{ backgroundColor: '#00bcd4' }}
-                    className="mt-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="mt-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white w-1/3"
                 >
                     Edit Details
                 </button>
